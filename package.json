@@ -2,11 +2,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "dotenv -f .env.production next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "db": "docker compose up",
     "db:push": "dotenv -- prisma db push",
     "db:seed": "dotenv -- prisma db seed",
     "db:studio": "dotenv -- prisma studio --browser none",
