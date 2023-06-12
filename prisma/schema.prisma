@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Article {
+  id    String @id @default(uuid())
+  year  Int
+  month Int
+  day   Int
+  slug  String
+
+  title String
+  body  String
+  tags  String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attachments Attachment[]
+
+  // URLs will look like /2019/12/31/my-article
+  @@unique([year, month, day, slug])
+}
+
+model Attachment {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name    String
+  url     String?
+  content Bytes?
+
+  article      Article? @relation(fields: [articleYear, articleMonth, articleDay, articleSlug], references: [year, month, day, slug])
+  articleYear  Int?
+  articleMonth Int?
+  articleDay   Int?
+  articleSlug  String?
+
+  @@unique([articleYear, articleMonth, articleDay, articleSlug, name])
+}

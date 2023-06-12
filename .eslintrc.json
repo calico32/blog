@@ -1,0 +1,17 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "ignorePatterns": ["dist/**", "node_modules/**", "out/**", "public/**", "scripts/**"],
+  "rules": {
+    "generator-star-spacing": "off",
+    "space-before-function-paren": "off",
+    "no-useless-constructor": "off",
+    "multiline-ternary": "off",
+    "import/extensions": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-dynamic-delete": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}

@@ -1,0 +1,7 @@
+.file-input:hover button {
+  @apply border-sky-700 bg-sky-700;
+}
+
+.file-input:active button {
+  @apply border-sky-800 bg-sky-800;
+}
