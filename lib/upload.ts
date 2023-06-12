@@ -1,6 +1,7 @@
 'use server'
 
 import matter from 'gray-matter'
+import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { articleURL } from './article'
 import { prisma } from './database'
@@ -102,6 +103,8 @@ export async function uploadMarkdown(options: MarkdownUploadOptions) {
       },
     },
   })
+
+  revalidatePath('/')
 
   return articleURL(article)
 }

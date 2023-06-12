@@ -21,6 +21,8 @@ type PageParams = {
   slug: string
 }
 
+export const revalidate = false
+
 const getPost = cache(async (params: PostQuery) => {
   const article = await prisma.article.findUnique({
     where: {

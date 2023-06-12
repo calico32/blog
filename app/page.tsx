@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "calico's blog for tech and irl and everything in between",
 }
 
+export const revalidate = 900
+
 export default async function Page() {
   const articles = await prisma.article.findMany()
   return (
